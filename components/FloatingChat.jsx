@@ -7,10 +7,9 @@ export default function FloatingChat() {
   const [mounted, setMounted] = useState(false);
   const [open, setOpen] = useState(false);
 
-  // Công tắc thử nghiệm: mở trang với ?nochat=1 để ẩn hoàn toàn widget (xóa sau khi tìm ra lỗi).
+  // Mount on the client only. (?nochat=1 still hides the widget, handy for debugging.)
   useEffect(() => {
-    const off = new URLSearchParams(window.location.search).has('nochat');
-    setMounted(!off);
+    setMounted(!new URLSearchParams(window.location.search).has('nochat'));
   }, []);
 
   useEffect(() => {

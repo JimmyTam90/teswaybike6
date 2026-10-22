@@ -1,6 +1,6 @@
 import "./globals.css";
 import Analytics from "@/components/Analytics";
-// import FloatingChat from "@/components/FloatingChat";
+import FloatingChat from "@/components/FloatingChat";
 import { MERCHANT_ORIGIN } from "@/lib/affiliate";
 import { SITE, OG_IMAGE } from "@/lib/site";
 import { GTM_ID } from "@/lib/config";
@@ -75,6 +75,7 @@ export default function RootLayout({ children }) {
         {children}
         <Gtm />
         <Analytics />
+        <FloatingChat />
         <RepaintNudge />
         <Probe />
       </body>
