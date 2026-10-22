@@ -6,6 +6,7 @@ import { SITE, OG_IMAGE } from "@/lib/site";
 import { GTM_ID } from "@/lib/config";
 import Gtm from "@/components/Gtm";
 import Probe from "@/components/Probe";
+import RepaintNudge from "@/components/RepaintNudge";
 
 const ICON_URL = `${SITE.spokeOrigin}${SITE.subpath}/favicon.png?v=2`;
 
@@ -74,6 +75,7 @@ export default function RootLayout({ children }) {
         {children}
         <Gtm />
         <Analytics />
+        <RepaintNudge />
         <Probe />
       </body>
     </html>
