@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { 
+  background-color: #020617; 
+  scroll-behavior: smooth; 
+  -webkit-text-size-adjust: 100%; 
+}
+
+@media (prefers-reduced-motion: reduce) { 
+  html { scroll-behavior: auto; } 
+}
+
+/* Đồng bộ background của body sang nền tối #020617 và màu chữ trắng/sáng */
+body { 
+  background-color: #020617; 
+  color: #f8fafc; 
+}
+
+:focus-visible { 
+  outline: 3px solid #2563eb; 
+  outline-offset: 2px; 
+}
+
+.on-dark :focus-visible, header :focus-visible, footer :focus-visible { 
+  outline-color: #93c5fd; 
+}

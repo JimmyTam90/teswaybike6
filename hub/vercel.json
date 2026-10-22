@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/tesway-ebike", "destination": "https://tesway-ebikes5.vercel.app/tesway-ebike" },
+    { "source": "/tesway-ebike/:path*", "destination": "https://tesway-ebikes5.vercel.app/tesway-ebike/:path*" }
+  ]
+}
