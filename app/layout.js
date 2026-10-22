@@ -1,10 +1,11 @@
 import "./globals.css";
-import Script from "next/script";
 import Analytics from "@/components/Analytics";
 // import FloatingChat from "@/components/FloatingChat";
 import { MERCHANT_ORIGIN } from "@/lib/affiliate";
 import { SITE, OG_IMAGE } from "@/lib/site";
 import { GTM_ID } from "@/lib/config";
+import Gtm from "@/components/Gtm";
+import Probe from "@/components/Probe";
 
 const ICON_URL = `${SITE.spokeOrigin}${SITE.subpath}/favicon.png?v=2`;
 
@@ -55,17 +56,6 @@ export default function RootLayout({ children }) {
         <link rel="dns-prefetch" href={MERCHANT_ORIGIN} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-        {GTM_ID && (
-          <Script id="gtm-script" strategy="afterInteractive">
-            {`
-              (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-              })(window,document,'script','dataLayer','${GTM_ID}');
-            `}
-          </Script>
-        )}
       </head>
 
       {/* ĐÃ SỬA: Bỏ overflow-x-hidden w-full relative min-h-screen */}
@@ -82,7 +72,9 @@ export default function RootLayout({ children }) {
         )}
 
         {children}
+        <Gtm />
         <Analytics />
+        <Probe />
       </body>
     </html>
   );

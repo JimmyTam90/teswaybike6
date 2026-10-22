@@ -26,3 +26,15 @@ body {
 .on-dark :focus-visible, header :focus-visible, footer :focus-visible { 
   outline-color: #93c5fd; 
 }
+
+/* ===== TEMPORARY BISECT SWITCHES (open any page with ?x=noimg,noblur,... ; remove when the bug is found) ===== */
+html[data-x~="noimg"] img { display: none !important; }
+html[data-x~="noblur"] * { filter: none !important; }
+html[data-x~="nofx"] *, html[data-x~="nofx"] *::before, html[data-x~="nofx"] *::after {
+  backdrop-filter: none !important; -webkit-backdrop-filter: none !important; filter: none !important;
+  transform: none !important; will-change: auto !important; box-shadow: none !important;
+}
+html[data-x~="nofooter"] footer { display: none !important; }
+html[data-x~="nosticky"] header { position: static !important; }
+html[data-x~="nosmooth"] { scroll-behavior: auto !important; }
+html[data-x~="nobg"] html, html[data-x~="nobg"] body { background: #020617 !important; }
