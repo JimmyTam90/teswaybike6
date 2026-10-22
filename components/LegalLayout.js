@@ -4,8 +4,8 @@ import Footer from "./Footer";
 
 export default function LegalLayout({ children, title }) {
   return (
-    <div className="flex min-h-screen flex-col bg-slate-950 text-slate-100">
-      <header className="w-full border-b border-slate-800 bg-slate-950">
+    <div className="flex min-h-screen w-full flex-col overflow-x-hidden bg-slate-950 text-slate-100">
+      <header className="relative z-50 w-full border-b border-slate-800 bg-slate-950 shadow-md">
         <div className="mx-auto flex h-20 max-w-4xl items-center justify-between gap-4 px-4 sm:px-6">
           <Logo priority className="h-12 w-auto" />
 
@@ -18,7 +18,7 @@ export default function LegalLayout({ children, title }) {
         </div>
       </header>
 
-      <main className="mx-auto w-full max-w-4xl flex-1 px-4 py-8 sm:px-6 sm:py-12">
+      <main className="relative z-10 mx-auto w-full max-w-4xl flex-1 overflow-hidden break-words px-4 py-8 sm:px-6 sm:py-12">
         {title ? (
           <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">{title}</h1>
         ) : null}

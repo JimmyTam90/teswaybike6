@@ -32,7 +32,7 @@ export default function Header() {
   }, [open]);
 
   return (
-    <div className="w-full relative z-50 bg-slate-950">
+    <div className="w-full relative z-50 bg-slate-950 overflow-x-hidden">
       {/* 1. TOP ANNOUNCEMENT BAR */}
       <div className="w-full bg-brand py-2 px-3 text-center text-xs font-semibold text-white border-b border-blue-600">
         <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-center gap-1.5 leading-tight">
@@ -52,7 +52,7 @@ export default function Header() {
       </div>
 
       {/* 2. MAIN HEADER */}
-      <header className="sticky top-0 z-50 w-full border-b border-slate-800 bg-slate-950 text-white">
+      <header className="sticky top-0 z-50 w-full border-b border-slate-800 bg-slate-950 text-white relative shadow-md">
         <div className="mx-auto flex h-16 sm:h-20 max-w-6xl items-center justify-between gap-2 px-4">
           {/* Logo Giữ nguyên hình ảnh */}
           <Logo priority className="h-11 w-auto sm:h-14" />

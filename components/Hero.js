@@ -3,15 +3,11 @@ import RatingBlock from "./RatingBlock";
 import RemoteImage from "./RemoteImage";
 import { FEATURED } from "@/lib/products";
 import { SITE } from "@/lib/site";
-
-// DOM order = mobile order: text -> image -> CTAs.
-// From md up: balanced 1.05fr / 0.95fr columns (text + CTAs left, image right).
 export default function Hero() {
   return (
-    <section className="relative z-10 w-full max-w-full overflow-hidden on-dark bg-gradient-to-b from-slate-900 to-ink text-white">
-      <div className="mx-auto grid max-w-6xl w-full gap-6 px-4 py-8 sm:py-10 md:grid-cols-[1.05fr_0.95fr] md:gap-x-10 md:gap-y-6 md:py-14">
+    <section className="relative z-10 w-full max-w-full overflow-hidden on-dark bg-gradient-to-b from-slate-900 to-ink text-white pt-6 sm:pt-10">
+      <div className="mx-auto grid max-w-6xl w-full gap-6 px-4 py-6 sm:py-10 md:grid-cols-[1.05fr_0.95fr] md:gap-x-10 md:gap-y-6 md:py-14">
         
-        {/* SECTION 1: HEADER TEXT */}
         <div className="w-full max-w-full overflow-hidden break-words md:col-start-1 md:row-start-1 md:self-end">
           <p className="text-sm font-bold uppercase tracking-wider text-blue-300">
             Independent TESWAY e-bike guide
@@ -29,8 +25,6 @@ export default function Hero() {
             <li className="rounded-full border border-slate-700 bg-slate-800 px-3 py-1">Save up to $1,000 on select models*</li>
           </ul>
         </div>
-
-        {/* SECTION 2: FEATURED IMAGE CONTAINER - Đã khóa kín chống tràn lề Mobile */}
         <div className="mx-auto w-full max-w-md overflow-hidden rounded-2xl border border-slate-200 bg-white p-3 shadow-md md:col-start-2 md:row-span-2 md:row-start-1 md:self-center">
           <RemoteImage
             src={FEATURED?.image}
@@ -42,8 +36,6 @@ export default function Hero() {
             className="h-56 w-full object-contain sm:h-80 block"
           />
         </div>
-
-        {/* SECTION 3: RATING & CTA BUTTONS */}
         <div className="w-full max-w-full overflow-hidden md:col-start-1 md:row-start-2 md:self-start">
           <RatingBlock className="mb-4" />
           <div className="flex flex-col gap-3 sm:flex-row">
@@ -61,7 +53,6 @@ export default function Hero() {
             *As listed by the merchant on {SITE.dataDate}. Prices and offers can change. Confirm at checkout.
           </p>
         </div>
-
       </div>
     </section>
   );
