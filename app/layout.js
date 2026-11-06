@@ -8,8 +8,7 @@ import Gtm from "@/components/Gtm";
 import Probe from "@/components/Probe";
 import RepaintNudge from "@/components/RepaintNudge";
 
-// FIX DUY NHẤT: Trỏ trực tiếp về file favicon.png trong thư mục public
-const ICON_URL = "/favicon.png";
+const ICON_URL = "/favicon.png?v=3";
 
 export const metadata = {
   icons: {
@@ -54,10 +53,11 @@ export default function RootLayout({ children }) {
     // ĐÃ SỬA: Bỏ class "scroll-smooth" khỏi thẻ html
     <html lang="en">
       <head>
+        <link rel="icon" href="/favicon.png?v=3" type="image/png" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="preconnect" href={MERCHANT_ORIGIN} />
         <link rel="dns-prefetch" href={MERCHANT_ORIGIN} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-
       </head>
 
       {/* ĐÃ SỬA: Bỏ overflow-x-hidden w-full relative min-h-screen */}
