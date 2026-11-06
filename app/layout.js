@@ -8,7 +8,8 @@ import Gtm from "@/components/Gtm";
 import Probe from "@/components/Probe";
 import RepaintNudge from "@/components/RepaintNudge";
 
-const ICON_URL = `${SITE.spokeOrigin}${SITE.subpath}/favicon.png?v=2`;
+// FIX DUY NHẤT: Trỏ trực tiếp về file favicon.png trong thư mục public
+const ICON_URL = "/favicon.png";
 
 export const metadata = {
   icons: {
