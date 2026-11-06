@@ -7,5 +7,5 @@ through the Hub rewrite; deployed spoke: https://tesway-ebikes5.vercel.app/teswa
 - Hub: merge the two rewrites in `hub/vercel.json` into the Hub project's existing `vercel.json`. Do not overwrite other spokes.
 - Affiliate URLs live only in `lib/affiliate.js`. Optional tracking IDs go in `.env` (see `.env.example`).
 
-- Favicon: `public/favicon.png`, linked from `app/layout.js` (`?v=2` busts browser caches; bump it if you replace the file).
+- Favicon: `public/favicon.ico`, `favicon-32/192.png`, `apple-touch-icon.png`, declared in `app/layout.js` with the basePath prefix (`ICON_V` busts browser caches; bump it if you replace the files).
 - Product images load straight from the merchant CDN through `components/RemoteImage.js`, which falls back to a labelled box if an image fails.

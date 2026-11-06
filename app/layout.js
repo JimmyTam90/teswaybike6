@@ -8,14 +8,23 @@ import Gtm from "@/components/Gtm";
 import Probe from "@/components/Probe";
 import RepaintNudge from "@/components/RepaintNudge";
 
-const ICON_URL = "/favicon.png?v=3";
+// basePath-aware icon URLs: the site lives under SITE.subpath (e.g. /tesway-ebike) behind the Hub rewrite,
+// and Next does NOT add basePath to plain strings in metadata.icons or to raw <link> tags. A root-relative
+// "/favicon.png" points at the Hub root (not this spoke) and 404s, so every icon URL must carry the subpath.
+const ICON_V = "4"; // bump to bust browser favicon caches
+const P = SITE.subpath;
+const ICONS = {
+  icon: [
+    { url: `${P}/favicon-32.png?v=${ICON_V}`, sizes: "32x32", type: "image/png" },
+    { url: `${P}/favicon-192.png?v=${ICON_V}`, sizes: "192x192", type: "image/png" },
+    { url: `${P}/favicon.ico?v=${ICON_V}`, sizes: "48x48" },
+  ],
+  shortcut: [{ url: `${P}/favicon.ico?v=${ICON_V}` }],
+  apple: [{ url: `${P}/apple-touch-icon.png?v=${ICON_V}`, sizes: "180x180", type: "image/png" }],
+};
 
 export const metadata = {
-  icons: {
-    icon: [{ url: ICON_URL, type: "image/png" }],
-    shortcut: [{ url: ICON_URL, type: "image/png" }],
-    apple: [{ url: ICON_URL, type: "image/png" }],
-  },
+  icons: ICONS,
   metadataBase: new URL(SITE.origin),
   title: SITE.title,
   description: SITE.description,
@@ -53,8 +62,6 @@ export default function RootLayout({ children }) {
     // ĐÃ SỬA: Bỏ class "scroll-smooth" khỏi thẻ html
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.png?v=3" type="image/png" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="preconnect" href={MERCHANT_ORIGIN} />
         <link rel="dns-prefetch" href={MERCHANT_ORIGIN} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
